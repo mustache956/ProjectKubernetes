@@ -1,5 +1,5 @@
 apiVersion: apps/v1
-kind: Deployement
+kind: Deployment
 metadata: 
   name: eshop-frontend
 spec: 
@@ -20,7 +20,7 @@ spec:
 ---
 
 apiVersion: apps/v1
-kind: Deployement
+kind: Deployment
 metadata: 
   name: eshop-back-users
 spec: 
@@ -42,7 +42,7 @@ spec:
 ---
 
 apiVersion: apps/v1
-kind: Deployement
+kind: Deployment
 metadata: 
   name: eshop-mongodb
 spec: 

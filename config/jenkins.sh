@@ -54,28 +54,36 @@ pipeline {
         stage('apply deplyments') {
             steps {
                 script {
-                    bat 'kubectl apply -f kube-deployment.yml'
+                    dir('config') {
+                        bat 'kubectl apply -f kube-deployement.yml'
+                    }
                 }
             }
         }
         stage('apply services') {
             steps {
                 script {
-                    bat 'kubectl apply -f kube-service.yml'
+                    dir('config') {
+                        bat 'kubectl apply -f kube-service.yml'
+                    }
                 }
             }
         }
         stage('apply ingress config') {
             steps {
                 script {
-                    bat 'kubectl apply -f ingress.yml'
+                    dir('config') {
+                        bat 'kubectl apply -f ingress.yml'
+                    }
                 }
             }
         }
         stage('Logs') {
             steps {
                 script {
-                    bat 'kubectl get pods, services, deployments'
+                    dir('config') {
+                        bat 'kubectl get pods, services, deployments'
+                    }
                 }
             }
         }
