@@ -57,5 +57,5 @@ spec:
     spec: 
       containers: 
         - name: eshop-mongodb
-          image: //TODO
+          image: mongodb/mongodb-community-server:latest
           imagePullPolicy: Always

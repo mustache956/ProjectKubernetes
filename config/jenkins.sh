@@ -5,7 +5,7 @@ pipeline {
     stages {
         stage('clone git repo') {
             steps {
-                git branch: 'main', url: 'https'
+                git branch: 'main', url: 'https://github.com/mustache956/ProjectKubernetes.git'
             }
         }
         stage('buildFront') {
@@ -21,19 +21,19 @@ pipeline {
             steps {
                 script {
                     dir('Inscription') {
-                        bat 'docker build -t antoiner956/eshop-back-users'
+                        bat 'docker build -t antoiner956/eshop-back-users:1.0 .'
                     }
                 }
             }
         }
         stage('publish frontend') {
-            setps {
+            steps {
                 bat 'docker push antoiner956/eshop-frontend:1.0'
             }
         }
         stage('publish backend users') {
-            setps {
-                bat 'docker push antoiner956/eshop-back-user:1.0'
+            steps {
+                bat 'docker push antoiner956/eshop-back-users:1.0'
             }
         }
         stage('start minikube') {
