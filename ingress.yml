@@ -1,0 +1,30 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ingress
+spec:
+  rules:
+    - host: cloud-eshop.com
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend: 
+              service: 
+                name: eshop-frontend
+                port: 
+                  number: 8090
+          - path: /
+            pathType: Prefix
+            backend: 
+              service: 
+                name: eshop-back-users
+                port: 
+                  number: 3000
+          - path: /
+            pathType: Prefix
+            backend: 
+              service: 
+                name: eshop-mongodb
+                port: 
+                  number: 27017

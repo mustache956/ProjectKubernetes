@@ -1,0 +1,61 @@
+apiVersion: apps/v1
+kind: Deployement
+metadata: 
+  name: eshop-frontend
+spec: 
+  replicas: 1
+  selector:
+    matchLabels: 
+      app: epshop-frontend
+  template: 
+    metadata: 
+      labels: 
+        app: eshop-frontend
+    spec: 
+      containers: 
+        - name: eshop-frontend
+          image: antoiner956/eshop-frontend:1.0
+          imagePullPolicy: Always
+
+---
+
+apiVersion: apps/v1
+kind: Deployement
+metadata: 
+  name: eshop-back-users
+spec: 
+  replicas: 1
+  selector:
+    matchLabels: 
+      app: eshop-back-users
+  template: 
+    metadata: 
+      labels: 
+        app: eshop-back-users
+    spec: 
+      containers: 
+        - name: eshop-back-users
+          image: antoiner956/eshop-back-users:1.0
+          imagePullPolicy: Always
+
+
+---
+
+apiVersion: apps/v1
+kind: Deployement
+metadata: 
+  name: eshop-mongodb
+spec: 
+  replicas: 1
+  selector:
+    matchLabels: 
+      app: eshop-mongodb
+  template: 
+    metadata: 
+      labels: 
+        app: eshop-mongodb
+    spec: 
+      containers: 
+        - name: eshop-mongodb
+          image: //TODO
+          imagePullPolicy: Always

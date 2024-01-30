@@ -6,19 +6,21 @@ const bcrypt = require('bcrypt');
 // Contrôleur pour l'inscription d'un utilisateur
 async function registerUser(req, res) {
   try {
-    const { username, password } = req.body;
+    const { firstname, password, email } = req.body;
 
     // Vérifier si l'utilisateur existe déjà
-    const existingUser = await User.findOne({ username });
+    const existingUser = await User.findOne({ firstname });
     if (existingUser) {
       return res.status(400).json({ message: 'Cet utilisateur existe déjà' });
     }
 
     // Hasher le mot de passe
+    console.log(req.body);
     const hashedPassword = await bcrypt.hash(password, 10);
 
     // Créer un nouvel utilisateur
-    const newUser = new User({ username, password: hashedPassword });
+    const newUser = new User({ firstname, password: hashedPassword, email });
+    console.log(newUser);
     await newUser.save();
 
     res.status(201).json({ message: 'Utilisateur enregistré avec succès' });
@@ -31,10 +33,10 @@ async function registerUser(req, res) {
 // Contrôleur pour la connexion d'un utilisateur
 async function loginUser(req, res) {
   try {
-    const { username, password } = req.body;
+    const { firstname, password } = req.body;
 
     // Vérifier si l'utilisateur existe
-    const user = await User.findOne({ username });
+    const user = await User.findOne({ firstname });
     if (!user) {
       return res.status(404).json({ message: 'Utilisateur non trouvé' });
     }

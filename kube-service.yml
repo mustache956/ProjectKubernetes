@@ -1,0 +1,41 @@
+apiVersion: v1
+kind: Service
+metadata: 
+  name: eshop-frontend
+spec: 
+  ports: 
+    - name: http
+      targetPort: 8090
+      port: 80
+  selector: 
+    app: eshop-frontend
+
+---
+
+apiVersion: v1
+kind: Service
+metadata: 
+  name: eshop-back-users
+spec: 
+  ports: 
+    - name: http
+      targetPort: 3000
+      port: 80
+  type: ClusterIP
+  selector: 
+    app: eshop-back-users
+
+---
+
+apiVersion: v1
+kind: Service
+metadata: 
+  name: eshop-mongobd
+spec: 
+  ports: 
+    - name: http
+      targetPort: 27017
+      port: 80
+  type: ClusterIP
+  selector: 
+    app: eshop-mongodb
