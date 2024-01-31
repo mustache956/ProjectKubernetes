@@ -9,22 +9,22 @@ spec:
         paths:
           - path: /mongodb
             pathType: Prefix
-            backend:
-              service:
-                name: eshop-mongodb-service
-                port:
+            backend: 
+              service: 
+                name: eshop-mongodb-service  # Updated to match the corrected service name
+                port: 
                   number: 27017
           - path: /
             pathType: Prefix
-            backend:
-              service:
+            backend: 
+              service: 
                 name: eshop-frontend
-                port:
+                port: 
                   number: 8090
           - path: /users
             pathType: Prefix
-            backend:
-              service:
+            backend: 
+              service: 
                 name: eshop-back-users
-                port:
+                port: 
                   number: 3000
