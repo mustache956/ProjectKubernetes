@@ -11,7 +11,7 @@ spec:
             pathType: Prefix
             backend: 
               service: 
-                name: eshop-mongodb-service  # Updated to match the corrected service name
+                name: eshop-mongodb
                 port: 
                   number: 27017
           - path: /
@@ -28,3 +28,4 @@ spec:
                 name: eshop-back-users
                 port: 
                   number: 3000
+
