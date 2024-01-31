@@ -9,7 +9,7 @@ const router = createRouter({
     history: createWebHistory(),
     routes: [
         {
-            path: '/connection',
+            path: '/',
             name: 'Connection',
             component: Connection
         },
