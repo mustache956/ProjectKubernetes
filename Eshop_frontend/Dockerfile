@@ -11,7 +11,6 @@ FROM node:${NODE_VERSION}-alpine
 # Use production node environment by default.
 ENV NODE_ENV production
 
-
 WORKDIR /usr/src/app
 
 # Download dependencies as a separate step to take advantage of Docker's caching.
@@ -22,6 +21,18 @@ RUN --mount=type=bind,source=package.json,target=package.json \
     --mount=type=bind,source=package-lock.json,target=package-lock.json \
     --mount=type=cache,target=/root/.npm \
     npm ci --omit=dev
+
+# Install Vite globally
+RUN npm install -g create-vite
+
+# Create a Vite project
+RUN create-vite my-vite-app
+
+# Change the working directory to the Vite project
+WORKDIR /usr/src/app/my-vite-app
+
+# Install Vite dependencies
+RUN npm install
 
 # Run the application as a non-root user.
 USER node
