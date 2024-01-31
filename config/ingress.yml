@@ -11,6 +11,13 @@ spec:
             pathType: Prefix
             backend: 
               service: 
+                name: eshop-mongodb
+                port: 
+                  number: 27017
+          - path: /
+            pathType: Prefix
+            backend: 
+              service: 
                 name: eshop-frontend
                 port: 
                   number: 8090
@@ -21,10 +28,4 @@ spec:
                 name: eshop-back-users
                 port: 
                   number: 3000
-          - path: /
-            pathType: Prefix
-            backend: 
-              service: 
-                name: eshop-mongodb
-                port: 
-                  number: 27017
+

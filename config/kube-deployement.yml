@@ -1,3 +1,25 @@
+
+apiVersion: apps/v1
+kind: Deployment
+metadata: 
+  name: eshop-mongodb
+spec: 
+  replicas: 1
+  selector:
+    matchLabels: 
+      app: eshop-mongodb
+  template: 
+    metadata: 
+      labels: 
+        app: eshop-mongodb
+    spec: 
+      containers: 
+        - name: eshop-mongodb
+          image: mongodb/mongodb-community-server:latest
+          imagePullPolicy: Always
+
+---
+
 apiVersion: apps/v1
 kind: Deployment
 metadata: 
@@ -39,23 +61,3 @@ spec:
           imagePullPolicy: Always
 
 
----
-
-apiVersion: apps/v1
-kind: Deployment
-metadata: 
-  name: eshop-mongodb
-spec: 
-  replicas: 1
-  selector:
-    matchLabels: 
-      app: eshop-mongodb
-  template: 
-    metadata: 
-      labels: 
-        app: eshop-mongodb
-    spec: 
-      containers: 
-        - name: eshop-mongodb
-          image: mongodb/mongodb-community-server:latest
-          imagePullPolicy: Always
