@@ -25,12 +25,6 @@ RUN --mount=type=bind,source=package.json,target=package.json \
 # Install Vite globally
 RUN npm install -g create-vite
 
-# Create a Vite project
-RUN create-vite my-vite-app
-
-# Change the working directory to the Vite project
-WORKDIR /usr/src/app/my-vite-app
-
 # Install Vite dependencies
 RUN npm install
 
