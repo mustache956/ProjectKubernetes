@@ -31,9 +31,5 @@ COPY . .
 # Expose the port that the application listens on.
 EXPOSE 8090
 
-
-# Run the application as a non-root user.
-USER node
-
 # Run the application.
 CMD npm run dev
