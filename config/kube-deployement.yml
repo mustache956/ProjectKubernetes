@@ -17,6 +17,7 @@ spec:
         - name: eshop-mongodb
           image: mongodb/mongodb-community-server:latest
           imagePullPolicy: Always
+          command: ["mongod", "--bind_ip", "0.0.0.0"]
 
 ---
 
