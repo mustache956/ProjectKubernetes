@@ -7,7 +7,7 @@ const clientOptions = {
 
 exports.initClientDbConnection = async () => {
     try {
-        await mongoose.connect('mongodb://random.com:27017', clientOptions)
+        await mongoose.connect('mongodb://cloud-eshop.com:27017', clientOptions)
         console.log('Connected');
     } catch (error) {
         console.log(error);
