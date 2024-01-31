@@ -20,6 +20,9 @@ RUN npm i
 
 RUN npm i -g vite
 
+RUN ln -s /usr/src/app/node_modules/ ../node_modules
+
+
 # Copy the rest of the source files into the image.
 COPY . .
 
