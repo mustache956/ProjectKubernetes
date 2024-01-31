@@ -7,7 +7,7 @@ spec:
     - host: cloud-eshop.com
       http:
         paths:
-          - path: /
+          - path: /mongodb
             pathType: Prefix
             backend: 
               service: 
@@ -21,7 +21,7 @@ spec:
                 name: eshop-frontend
                 port: 
                   number: 8090
-          - path: /
+          - path: /users
             pathType: Prefix
             backend: 
               service: 
